@@ -1,4 +1,4 @@
-swiss_clock_tikz.gray.pdf:
+swiss_clock_tikz.gray.expanded.pdf:
 
 
 %.pdf: %.tex
@@ -15,3 +15,5 @@ swiss_clock_tikz.gray.pdf:
 	    $<
 
 
+%.expanded.pdf: %.pdf
+	podofouncompress  "$<"  "$@"
