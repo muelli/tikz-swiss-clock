@@ -35,7 +35,7 @@
 \begin{tikzpicture}[scale=2]
 
 % Define base radius
-\def\R{8}
+\def\R{4}
 
 % Clock face outer circle
 \draw[line width=2pt] (0,0) circle (\R);
@@ -82,16 +82,19 @@
 % Minute markers
 \foreach \minute in {0,6,12,...,354} {
     \pgfmathsetmacro{\angle}{90 - \minute}
-    \pgfmathsetmacro{\isHour}{mod(\minute, 30) == 0 ? 1 : 0}
-    \pgfmathsetmacro{\isFiveMin}{mod(\minute, 30) == 0 ? 0 : 1}
-    \ifnum\isHour=0
-        % Skip hour positions (already drawn)
+    \pgfmathsetmacro{\modThirty}{int(mod(\minute, 30))}
+    
+    \ifnum\modThirty=0
+        % Skip - this is an hour position (already drawn as thick line)
     \else
-        \ifnum\isFiveMin=1
-            % Five minute markers (thicker and longer)
-            \draw[line width=1pt] (\angle:0.875*\R) -- (\angle:0.925*\R);
+        % Not an hour position - check if it's a 5-minute interval
+        \pgfmathsetmacro{\modThirtySub}{int(mod(\minute, 30))}
+        \ifnum\modThirtySub=0
+            % This is never reached since we already excluded mod 30 = 0
         \else
-            % Regular minute markers (thin and short)
+            % Check actual 5-minute intervals (every 30 degrees = 5 minutes)
+            % Since input is every 6 degrees, 5 min = 30 deg
+            % Just draw all non-hour markers the same for now
             \draw[line width=0.5pt] (\angle:0.9*\R) -- (\angle:0.925*\R);
         \fi
     \fi
