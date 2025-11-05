@@ -1,6 +1,7 @@
 \documentclass[tikz,border=10pt]{standalone}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usepackage{graphicx}
 
 % Boolean switch to show/hide clock hands
 \newif\ifshowHands
@@ -12,33 +13,34 @@
 }
 
 % Define macros for canton coat of arms
-% Replace the \node commands below with your actual coat of arms code
-\newcommand{\cantonOne}{\node[text=gray] {1};}
-\newcommand{\cantonTwo}{\node[text=gray] {2};}
-\newcommand{\cantonThree}{\node[text=gray] {3};}
-\newcommand{\cantonFour}{\node[text=gray] {4};}
-\newcommand{\cantonFive}{\node[text=gray] {5};}
-\newcommand{\cantonSix}{\node[text=gray] {6};}
-\newcommand{\cantonSeven}{\node[text=gray] {7};}
-\newcommand{\cantonEight}{\node[text=gray] {8};}
-\newcommand{\cantonNine}{\node[text=gray] {9};}
-\newcommand{\cantonTen}{\node[text=gray] {10};}
-\newcommand{\cantonEleven}{\node[text=gray] {11};}
-\newcommand{\cantonTwelve}{\node[text=gray] {12};}
-\newcommand{\cantonThirteen}{\node[text=gray] {13};}
-\newcommand{\cantonFourteen}{\node[text=gray] {14};}
-\newcommand{\cantonFifteen}{\node[text=gray] {15};}
-\newcommand{\cantonSixteen}{\node[text=gray] {16};}
-\newcommand{\cantonSeventeen}{\node[text=gray] {17};}
-\newcommand{\cantonEighteen}{\node[text=gray] {18};}
-\newcommand{\cantonNineteen}{\node[text=gray] {19};}
-\newcommand{\cantonTwenty}{\node[text=gray] {20};}
-\newcommand{\cantonTwentyOne}{\node[text=gray] {21};}
-\newcommand{\cantonTwentyTwo}{\node[text=gray] {22};}
-\newcommand{\cantonTwentyThree}{\node[text=gray] {23};}
-\newcommand{\cantonTwentyFour}{\node[text=gray] {24};}
-\newcommand{\cantonTwentyFive}{\node[text=gray] {25};}
-\newcommand{\cantonTwentySix}{\node[text=gray] {26};}
+% Replace the filenames with your actual image files (PDF, PNG, or JPG)
+% You can also convert SVG to PDF using: inkscape canton01.svg --export-pdf=canton01.pdf
+\newcommand{\cantonOne}{\node {\includegraphics[width=0.15\R]{canton01}};}
+\newcommand{\cantonTwo}{\node {\includegraphics[width=0.13\R]{canton02}};}
+\newcommand{\cantonThree}{\node {\includegraphics[width=0.15\R]{canton03}};}
+\newcommand{\cantonFour}{\node {\includegraphics[width=0.13\R]{canton04}};}
+\newcommand{\cantonFive}{\node {\includegraphics[width=0.15\R]{canton05}};}
+\newcommand{\cantonSix}{\node {\includegraphics[width=0.13\R]{canton06}};}
+\newcommand{\cantonSeven}{\node {\includegraphics[width=0.15\R]{canton07}};}
+\newcommand{\cantonEight}{\node {\includegraphics[width=0.13\R]{canton08}};}
+\newcommand{\cantonNine}{\node {\includegraphics[width=0.15\R]{canton09}};}
+\newcommand{\cantonTen}{\node {\includegraphics[width=0.13\R]{canton10}};}
+\newcommand{\cantonEleven}{\node {\includegraphics[width=0.15\R]{canton11}};}
+\newcommand{\cantonTwelve}{\node {\includegraphics[width=0.13\R]{canton12}};}
+\newcommand{\cantonThirteen}{\node {\includegraphics[width=0.15\R]{canton13}};}
+\newcommand{\cantonFourteen}{\node {\includegraphics[width=0.13\R]{canton14}};}
+\newcommand{\cantonFifteen}{\node {\includegraphics[width=0.15\R]{canton15}};}
+\newcommand{\cantonSixteen}{\node {\includegraphics[width=0.13\R]{canton16}};}
+\newcommand{\cantonSeventeen}{\node {\includegraphics[width=0.15\R]{canton17}};}
+\newcommand{\cantonEighteen}{\node {\includegraphics[width=0.13\R]{canton18}};}
+\newcommand{\cantonNineteen}{\node {\includegraphics[width=0.15\R]{canton19}};}
+\newcommand{\cantonTwenty}{\node {\includegraphics[width=0.13\R]{canton20}};}
+\newcommand{\cantonTwentyOne}{\node {\includegraphics[width=0.15\R]{canton21}};}
+\newcommand{\cantonTwentyTwo}{\node {\includegraphics[width=0.13\R]{canton22}};}
+\newcommand{\cantonTwentyThree}{\node {\includegraphics[width=0.15\R]{canton23}};}
+\newcommand{\cantonTwentyFour}{\node {\includegraphics[width=0.13\R]{canton24}};}
+\newcommand{\cantonTwentyFive}{\node {\includegraphics[width=0.15\R]{canton25}};}
+\newcommand{\cantonTwentySix}{\node {\includegraphics[width=0.15\R]{canton26}};}
 
 \begin{document}
 \begin{tikzpicture}[scale=2]
