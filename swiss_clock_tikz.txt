@@ -35,7 +35,7 @@
 \begin{tikzpicture}[scale=2]
 
 % Define base radius
-\def\R{4}
+\def\R{8}
 
 % Clock face outer circle
 \draw[line width=2pt] (0,0) circle (\R);
@@ -87,14 +87,26 @@
     \ifnum\modThirty=0
         % Skip - this is an hour position (already drawn as thick line)
     \else
-        % Not an hour position - check if it's a 5-minute interval
-        \pgfmathsetmacro{\modThirtySub}{int(mod(\minute, 30))}
-        \ifnum\modThirtySub=0
-            % This is never reached since we already excluded mod 30 = 0
+        % Check if it's a 5-minute marker (every 5 minutes = 30 degrees)
+        % 5 min intervals are at: 6, 12, 18, 24 degrees (and repeats)
+        % which is every 30 degrees except the hours
+        % Actually: 1 minute = 6 degrees, so 5 minutes = 30 degrees
+        % But we excluded multiples of 30, so we need to check differently
+        % Let's use: \minute values 6,12,18,24 (mod 30) should be regular
+        % and we want NONE to be 5-minute since 5-min aligns with hours
+        % Wait: 5 minutes of TIME = 30 degrees of ANGLE
+        % Our loop: every 6 degrees = 1 minute
+        % So 5-minute marks are at minutes: 5,10,15,20,25,30,35,40,45,50,55,60
+        % In degrees: 30,60,90,120,150,180,... but 30,60,90 are excluded (hours)
+        % Hmm, let me reconsider: every 5 minutes means every 25th position
+        % Since we step by 6 degrees, position 5 = 30 deg (hour)
+        % Let's just mark every 5th tick that's not an hour
+        \pgfmathsetmacro{\isFiveMin}{int(mod(\minute/6, 5)) == 0 ? 1 : 0}
+        \ifnum\isFiveMin=1
+            % Five minute markers (thicker and longer)
+            \draw[line width=1pt] (\angle:0.875*\R) -- (\angle:0.925*\R);
         \else
-            % Check actual 5-minute intervals (every 30 degrees = 5 minutes)
-            % Since input is every 6 degrees, 5 min = 30 deg
-            % Just draw all non-hour markers the same for now
+            % Regular minute markers (thin and short)
             \draw[line width=0.5pt] (\angle:0.9*\R) -- (\angle:0.925*\R);
         \fi
     \fi
