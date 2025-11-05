@@ -18,32 +18,32 @@
 
 % Define macros for canton coat of arms
 % Replace the filenames with your actual image files (PDF, PNG, or JPG)
-\newcommand{\cantonOne}{\node {\includegraphics[width=0.15\R]{canton01}};}
-\newcommand{\cantonTwo}{\node {\includegraphics[width=0.13\R]{canton02}};}
-\newcommand{\cantonThree}{\node {\includegraphics[width=0.15\R]{canton03}};}
-\newcommand{\cantonFour}{\node {\includegraphics[width=0.13\R]{canton04}};}
-\newcommand{\cantonFive}{\node {\includegraphics[width=0.15\R]{canton05}};}
-\newcommand{\cantonSix}{\node {\includegraphics[width=0.13\R]{canton06}};}
-\newcommand{\cantonSeven}{\node {\includegraphics[width=0.15\R]{canton07}};}
-\newcommand{\cantonEight}{\node {\includegraphics[width=0.13\R]{canton08}};}
-\newcommand{\cantonNine}{\node {\includegraphics[width=0.15\R]{canton09}};}
-\newcommand{\cantonTen}{\node {\includegraphics[width=0.13\R]{canton10}};}
-\newcommand{\cantonEleven}{\node {\includegraphics[width=0.15\R]{canton11}};}
-\newcommand{\cantonTwelve}{\node {\includegraphics[width=0.13\R]{canton12}};}
-\newcommand{\cantonThirteen}{\node {\includegraphics[width=0.15\R]{canton13}};}
-\newcommand{\cantonFourteen}{\node {\includegraphics[width=0.13\R]{canton14}};}
-\newcommand{\cantonFifteen}{\node {\includegraphics[width=0.15\R]{canton15}};}
-\newcommand{\cantonSixteen}{\node {\includegraphics[width=0.13\R]{canton16}};}
-\newcommand{\cantonSeventeen}{\node {\includegraphics[width=0.15\R]{canton17}};}
-\newcommand{\cantonEighteen}{\node {\includegraphics[width=0.13\R]{canton18}};}
-\newcommand{\cantonNineteen}{\node {\includegraphics[width=0.15\R]{canton19}};}
-\newcommand{\cantonTwenty}{\node {\includegraphics[width=0.13\R]{canton20}};}
-\newcommand{\cantonTwentyOne}{\node {\includegraphics[width=0.15\R]{canton21}};}
-\newcommand{\cantonTwentyTwo}{\node {\includegraphics[width=0.13\R]{canton22}};}
-\newcommand{\cantonTwentyThree}{\node {\includegraphics[width=0.15\R]{canton23}};}
-\newcommand{\cantonTwentyFour}{\node {\includegraphics[width=0.13\R]{canton24}};}
-\newcommand{\cantonTwentyFive}{\node {\includegraphics[width=0.15\R]{canton25}};}
-\newcommand{\cantonTwentySix}{\node {\includegraphics[width=0.15\R]{canton26}};}
+\newcommand{\cantonOne}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton01}};}
+\newcommand{\cantonTwo}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton02}};}
+\newcommand{\cantonThree}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton03}};}
+\newcommand{\cantonFour}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton04}};}
+\newcommand{\cantonFive}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton05}};}
+\newcommand{\cantonSix}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton06}};}
+\newcommand{\cantonSeven}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton07}};}
+\newcommand{\cantonEight}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton08}};}
+\newcommand{\cantonNine}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton09}};}
+\newcommand{\cantonTen}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton10}};}
+\newcommand{\cantonEleven}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton11}};}
+\newcommand{\cantonTwelve}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton12}};}
+\newcommand{\cantonThirteen}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton13}};}
+\newcommand{\cantonFourteen}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton14}};}
+\newcommand{\cantonFifteen}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton15}};}
+\newcommand{\cantonSixteen}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton16}};}
+\newcommand{\cantonSeventeen}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton17}};}
+\newcommand{\cantonEighteen}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton18}};}
+\newcommand{\cantonNineteen}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton19}};}
+\newcommand{\cantonTwenty}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton20}};}
+\newcommand{\cantonTwentyOne}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton21}};}
+\newcommand{\cantonTwentyTwo}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton22}};}
+\newcommand{\cantonTwentyThree}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton23}};}
+\newcommand{\cantonTwentyFour}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton24}};}
+\newcommand{\cantonTwentyFive}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton25}};}
+\newcommand{\cantonTwentySix}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton26}};}
 
 \begin{document}
 \begin{tikzpicture}[scale=1, x=1cm, y=1cm]
