@@ -27,37 +27,6 @@
 \newcommand{\outerFlag}[2][outerLen]{\node {\includesvg[width=\csname#1\endcsname]{#2}};}
 \newcommand{\innerFlag}[2][innerLen]{\outerFlag[#1]{#2}}
 
-% Then replace all previous definitions with:
-\newcommand{\cantonOne}{\outerFlag{zuerich}}
-\newcommand{\cantonTwo}{\innerFlag{bern}}
-\newcommand{\cantonThree}{\outerFlag{lucerne}}
-\newcommand{\cantonFour}{\innerFlag{uri}}
-\newcommand{\cantonFive}{\outerFlag{schwyz}}
-\newcommand{\cantonSix}{\innerFlag{obwalden}}
-\newcommand{\cantonSeven}{\outerFlag{nidwalden}}
-\newcommand{\cantonEight}{\innerFlag{glarus}}
-\newcommand{\cantonNine}{\outerFlag{zug}}
-\newcommand{\cantonTen}{\innerFlag{fribourg}}
-\newcommand{\cantonEleven}{\outerFlag{solothurn}}
-\newcommand{\cantonTwelve}{\innerFlag{basel}}
-\newcommand{\cantonThirteen}{\outerFlag{baselland}}
-\newcommand{\cantonFourteen}{\innerFlag{schaffhausen}}
-\newcommand{\cantonFifteen}{\outerFlag{appenzellinnerrhoden}}
-\newcommand{\cantonSixteen}{\innerFlag{appenzellaussrrhoden}}
-%\newcommand{\cantonSeventeen}{\outerFlag{sanktgallen}}
-%\newcommand{\cantonEighteen}{\innerLen{graubuenden}}
-\newcommand{\cantonSeventeen}{\outerFlag{bern}}
-\newcommand{\cantonEighteen}{\innerLen{bern}}
-%
-\newcommand{\cantonNineteen}{\outerFlag{aargau}}
-\newcommand{\cantonTwenty}{\innerFlag{thurgau}}
-\newcommand{\cantonTwentyOne}{\outerFlag{ticino}}
-\newcommand{\cantonTwentyTwo}{\innerFlag{vaud}}
-\newcommand{\cantonTwentyThree}{\outerFlag{valais}}
-\newcommand{\cantonTwentyFour}{\innerFlag{neuchatel}}
-\newcommand{\cantonTwentyFive}{\innerFlag{geneva}}
-\newcommand{\cantonTwentySix}{\outerFlag{jura}}
-
 
 
 \begin{document}
@@ -72,18 +41,18 @@
 
 % Hour markers and canton positions
 \foreach \hour/\outerCanton/\innerCanton in {
-    1/\cantonOne/\cantonTwo,
-    2/\cantonThree/\cantonFour,
-    3/\cantonFive/\cantonSix,
-    4/\cantonSeven/\cantonEight,
-    5/\cantonNine/\cantonTen,
-    6/\cantonEleven/\cantonTwelve,
-    7/\cantonThirteen/\cantonFourteen,
-    8/\cantonFifteen/\cantonSixteen,
-    9/\cantonSeventeen/\cantonEighteen,
-    10/\cantonNineteen/\cantonTwenty,
-    11/\cantonTwentyOne/\cantonTwentyTwo,
-    12/\cantonTwentyThree/\cantonTwentyFour
+    1/zuerich/bern,
+    2/lucerne/uri,
+    3/schwyz/obwalden,
+    4/nidwalden/glarus,
+    5/zug/fribourg,
+    6/solothurn/basel,
+    7/baselland/schaffhausen,
+    8/appenzellinnerrhoden/appenzellausserrhoden,
+    9/sanktgallen/graubuenden,
+    10/aargau/thurgau,
+    11/ticino/vaud,
+    12/valais/neuchatel%
 } {
     % Calculate angle (12 o'clock is at 90 degrees)
     \pgfmathsetmacro{\angle}{90 - (30 * int(\hour))}
@@ -97,14 +66,14 @@
     % Outer canton coat of arms
     \draw[thick, fill=white] (\angle:0.65*\R) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
     \begin{scope}[shift={(\angle:0.65*\R)}]
-        \outerCanton
+        \outerFlag{\outerCanton}
     \end{scope}
-    
+
     % Inner canton coat of arms - between hours
     \pgfmathsetmacro{\innerangle}{\angle - 15}
     \draw[thick, fill=white] (\innerangle:0.45*\R) ++(-0.075*\R,-0.075*\R) rectangle ++(0.15*\R,0.15*\R);
     \begin{scope}[shift={(\innerangle:0.45*\R)}]
-        \innerCanton
+        \innerFlag{\innerCanton}
     \end{scope}
 }
 
@@ -144,12 +113,12 @@
 % Center canton positions (two remaining cantons)
 \draw[thick, fill=white] (-0.125*\R, 0) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
 \begin{scope}[shift={(-0.125*\R, 0)}]
-    \cantonTwentyFive
+    \outerFlag{geneva}
 \end{scope}
 
 \draw[thick, fill=white] (0.125*\R, 0) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
 \begin{scope}[shift={(0.125*\R, 0)}]
-    \cantonTwentySix
+    \outerFlag{jura}
 \end{scope}
 
 % Clock hands and center cap (controlled by \showHands boolean)
