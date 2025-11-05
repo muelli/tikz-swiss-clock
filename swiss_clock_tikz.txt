@@ -2,6 +2,15 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
+% Boolean switch to show/hide clock hands
+\newif\ifshowHands
+\showHandsfalse  % Set to \showHandstrue to display hands
+
+% TikZ style for hour numbers
+\tikzset{
+    hour number/.style={font=\Huge\sffamily}
+}
+
 % Define macros for canton coat of arms
 % Replace the \node commands below with your actual coat of arms code
 \newcommand{\cantonOne}{\node[text=gray] {1};}
@@ -63,7 +72,7 @@
     \draw[line width=1.5pt] (\angle:0.875*\R) -- (\angle:0.925*\R);
     
     % Hour numbers
-    \node at (\angle:0.825*\R) {\Large\textsf{\hour}};
+    \node[hour number] at (\angle:0.825*\R) {\hour};
     
     % Outer canton coat of arms
     \draw[thick, fill=white] (\angle:0.65*\R) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
@@ -123,19 +132,21 @@
     \cantonTwentySix
 \end{scope}
 
-% Clock hands
-% Hour hand (pointing to 10)
-\draw[line width=3pt, line cap=round] (0,0) -- (150:0.375*\R);
-
-% Minute hand (pointing to 2)
-\draw[line width=2pt, line cap=round] (0,0) -- (-60:0.575*\R);
-
-% Second hand (pointing to 6)
-\draw[line width=1pt, red, line cap=round] (0,0) -- (-90:0.625*\R);
-
-% Center cap
-\fill (0,0) circle (0.0375*\R);
-\draw[line width=1pt] (0,0) circle (0.0375*\R);
+% Clock hands and center cap (controlled by \showHands boolean)
+\ifshowHands
+    % Hour hand (pointing to 10)
+    \draw[line width=3pt, line cap=round] (0,0) -- (150:0.375*\R);
+    
+    % Minute hand (pointing to 2)
+    \draw[line width=2pt, line cap=round] (0,0) -- (-60:0.575*\R);
+    
+    % Second hand (pointing to 6)
+    \draw[line width=1pt, red, line cap=round] (0,0) -- (-90:0.625*\R);
+    
+    % Center cap
+    \fill (0,0) circle (0.0375*\R);
+    \draw[line width=1pt] (0,0) circle (0.0375*\R);
+\fi
 
 \end{tikzpicture}
 \end{document}
