@@ -76,7 +76,7 @@
     12/\cantonTwentyThree/\cantonTwentyFour
 } {
     % Calculate angle (12 o'clock is at 90 degrees)
-    \pgfmathsetmacro{\angle}{90 - 30\hour} % * 30}
+    \pgfmathsetmacro{\angle}{90 - (30 * int(\hour))}
     
     % Hour tick marks
     \draw[line width=1.5pt] (\angle:0.875*\R) -- (\angle:0.925*\R);
