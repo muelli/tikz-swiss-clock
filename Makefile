@@ -1,7 +1,7 @@
 swiss_clock_tikz.gray.pdf:
 
 
-swiss_clock_tikz.pdf: swiss_clock_tikz.tex
+%.pdf: %.tex
 	pdflatex --shell-escape $^
 
 
