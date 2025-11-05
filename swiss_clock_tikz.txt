@@ -2,18 +2,60 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
+% Define macros for canton coat of arms
+% Replace the \node commands below with your actual coat of arms code
+\newcommand{\cantonOne}{\node[text=gray] {1};}
+\newcommand{\cantonTwo}{\node[text=gray] {2};}
+\newcommand{\cantonThree}{\node[text=gray] {3};}
+\newcommand{\cantonFour}{\node[text=gray] {4};}
+\newcommand{\cantonFive}{\node[text=gray] {5};}
+\newcommand{\cantonSix}{\node[text=gray] {6};}
+\newcommand{\cantonSeven}{\node[text=gray] {7};}
+\newcommand{\cantonEight}{\node[text=gray] {8};}
+\newcommand{\cantonNine}{\node[text=gray] {9};}
+\newcommand{\cantonTen}{\node[text=gray] {10};}
+\newcommand{\cantonEleven}{\node[text=gray] {11};}
+\newcommand{\cantonTwelve}{\node[text=gray] {12};}
+\newcommand{\cantonThirteen}{\node[text=gray] {13};}
+\newcommand{\cantonFourteen}{\node[text=gray] {14};}
+\newcommand{\cantonFifteen}{\node[text=gray] {15};}
+\newcommand{\cantonSixteen}{\node[text=gray] {16};}
+\newcommand{\cantonSeventeen}{\node[text=gray] {17};}
+\newcommand{\cantonEighteen}{\node[text=gray] {18};}
+\newcommand{\cantonNineteen}{\node[text=gray] {19};}
+\newcommand{\cantonTwenty}{\node[text=gray] {20};}
+\newcommand{\cantonTwentyOne}{\node[text=gray] {21};}
+\newcommand{\cantonTwentyTwo}{\node[text=gray] {22};}
+\newcommand{\cantonTwentyThree}{\node[text=gray] {23};}
+\newcommand{\cantonTwentyFour}{\node[text=gray] {24};}
+\newcommand{\cantonTwentyFive}{\node[text=gray] {25};}
+\newcommand{\cantonTwentySix}{\node[text=gray] {26};}
+
 \begin{document}
 \begin{tikzpicture}[scale=2]
 
 % Define base radius
-\def\R{4}
+\def\R{8}
 
 % Clock face outer circle
 \draw[line width=2pt] (0,0) circle (\R);
 \draw[line width=0.5pt] (0,0) circle (0.925*\R);
 
 % Hour markers and canton positions
-\foreach \hour in {1,2,...,12} {
+\foreach \hour/\outerCanton/\innerCanton in {
+    1/\cantonOne/\cantonTwo,
+    2/\cantonThree/\cantonFour,
+    3/\cantonFive/\cantonSix,
+    4/\cantonSeven/\cantonEight,
+    5/\cantonNine/\cantonTen,
+    6/\cantonEleven/\cantonTwelve,
+    7/\cantonThirteen/\cantonFourteen,
+    8/\cantonFifteen/\cantonSixteen,
+    9/\cantonSeventeen/\cantonEighteen,
+    10/\cantonNineteen/\cantonTwenty,
+    11/\cantonTwentyOne/\cantonTwentyTwo,
+    12/\cantonTwentyThree/\cantonTwentyFour
+} {
     % Calculate angle (12 o'clock is at 90 degrees)
     \pgfmathsetmacro{\angle}{90 - \hour * 30}
     
@@ -21,18 +63,20 @@
     \draw[line width=1.5pt] (\angle:0.875*\R) -- (\angle:0.925*\R);
     
     % Hour numbers
-    \node at (\angle:0.8*\R) {\Large\textsf{\hour}};
+    \node at (\angle:0.65*\R) {\Large\textsf{\hour}};
     
-    % Outer canton coat of arms (dummy boxes)
-    \draw[thick, fill=white] (\angle:1.125*\R) circle (0.0875*\R);
-    \node[text=gray] at (\angle:1.125*\R) {\footnotesize Canton};
-    \node[text=gray] at (\angle:1.125*\R - 0.0375*\R) {\tiny\hour A};
+    % Outer canton coat of arms
+    \draw[thick, fill=white] (\angle:0.825*\R) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
+    \begin{scope}[shift={(\angle:0.825*\R)}]
+        \outerCanton
+    \end{scope}
     
-    % Inner canton coat of arms (dummy boxes) - between hours
+    % Inner canton coat of arms - between hours
     \pgfmathsetmacro{\innerangle}{\angle - 15}
-    \draw[thick, fill=white] (\innerangle:0.625*\R) circle (0.075*\R);
-    \node[text=gray] at (\innerangle:0.625*\R) {\footnotesize Canton};
-    \node[text=gray] at (\innerangle:0.625*\R - 0.03*\R) {\tiny\hour B};
+    \draw[thick, fill=white] (\innerangle:0.45*\R) ++(-0.075*\R,-0.075*\R) rectangle ++(0.15*\R,0.15*\R);
+    \begin{scope}[shift={(\innerangle:0.45*\R)}]
+        \innerCanton
+    \end{scope}
 }
 
 % Minute markers (small ticks)
@@ -45,13 +89,15 @@
 }
 
 % Center canton positions (two remaining cantons)
-\draw[thick, fill=white] (-0.125*\R, 0) circle (0.0875*\R);
-\node[text=gray] at (-0.125*\R, 0) {\footnotesize Canton};
-\node[text=gray] at (-0.125*\R, -0.0375*\R) {\tiny 25};
+\draw[thick, fill=white] (-0.125*\R, 0) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
+\begin{scope}[shift={(-0.125*\R, 0)}]
+    \cantonTwentyFive
+\end{scope}
 
-\draw[thick, fill=white] (0.125*\R, 0) circle (0.0875*\R);
-\node[text=gray] at (0.125*\R, 0) {\footnotesize Canton};
-\node[text=gray] at (0.125*\R, -0.0375*\R) {\tiny 26};
+\draw[thick, fill=white] (0.125*\R, 0) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
+\begin{scope}[shift={(0.125*\R, 0)}]
+    \cantonTwentySix
+\end{scope}
 
 % Clock hands
 % Hour hand (pointing to 10)
