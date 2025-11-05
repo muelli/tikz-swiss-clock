@@ -1,0 +1,71 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+
+% Define base radius
+\def\R{4}
+
+% Clock face outer circle
+\draw[line width=2pt] (0,0) circle (\R);
+\draw[line width=0.5pt] (0,0) circle (0.925*\R);
+
+% Hour markers and canton positions
+\foreach \hour in {1,2,...,12} {
+    % Calculate angle (12 o'clock is at 90 degrees)
+    \pgfmathsetmacro{\angle}{90 - \hour * 30}
+    
+    % Hour tick marks
+    \draw[line width=1.5pt] (\angle:0.875*\R) -- (\angle:0.925*\R);
+    
+    % Hour numbers
+    \node at (\angle:0.8*\R) {\Large\textsf{\hour}};
+    
+    % Outer canton coat of arms (dummy boxes)
+    \draw[thick, fill=white] (\angle:1.125*\R) circle (0.0875*\R);
+    \node[text=gray] at (\angle:1.125*\R) {\footnotesize Canton};
+    \node[text=gray] at (\angle:1.125*\R - 0.0375*\R) {\tiny\hour A};
+    
+    % Inner canton coat of arms (dummy boxes) - between hours
+    \pgfmathsetmacro{\innerangle}{\angle - 15}
+    \draw[thick, fill=white] (\innerangle:0.625*\R) circle (0.075*\R);
+    \node[text=gray] at (\innerangle:0.625*\R) {\footnotesize Canton};
+    \node[text=gray] at (\innerangle:0.625*\R - 0.03*\R) {\tiny\hour B};
+}
+
+% Minute markers (small ticks)
+\foreach \minute in {0,6,12,...,354} {
+    \pgfmathsetmacro{\angle}{90 - \minute}
+    \pgfmathsetmacro{\isHour}{mod(\minute, 30) == 0 ? 1 : 0}
+    \ifnum\isHour=0
+        \draw[line width=0.5pt] (\angle:0.9*\R) -- (\angle:0.925*\R);
+    \fi
+}
+
+% Center canton positions (two remaining cantons)
+\draw[thick, fill=white] (-0.125*\R, 0) circle (0.0875*\R);
+\node[text=gray] at (-0.125*\R, 0) {\footnotesize Canton};
+\node[text=gray] at (-0.125*\R, -0.0375*\R) {\tiny 25};
+
+\draw[thick, fill=white] (0.125*\R, 0) circle (0.0875*\R);
+\node[text=gray] at (0.125*\R, 0) {\footnotesize Canton};
+\node[text=gray] at (0.125*\R, -0.0375*\R) {\tiny 26};
+
+% Clock hands
+% Hour hand (pointing to 10)
+\draw[line width=3pt, line cap=round] (0,0) -- (150:0.375*\R);
+
+% Minute hand (pointing to 2)
+\draw[line width=2pt, line cap=round] (0,0) -- (-60:0.575*\R);
+
+% Second hand (pointing to 6)
+\draw[line width=1pt, red, line cap=round] (0,0) -- (-90:0.625*\R);
+
+% Center cap
+\fill (0,0) circle (0.0375*\R);
+\draw[line width=1pt] (0,0) circle (0.0375*\R);
+
+\end{tikzpicture}
+\end{document}
