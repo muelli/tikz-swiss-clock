@@ -21,34 +21,39 @@
     hour number/.style={font=\Huge\sffamily}
 }
 
-% Define macros for canton coat of arms
-% Replace the filenames with your actual image files (PDF, PNG, or JPG)
-\newcommand{\cantonOne}{\node {\includegraphics[width=\outerLen]{canton01}};}
-\newcommand{\cantonTwo}{\node {\includegraphics[width=\innerLen]{canton01}};}
-\newcommand{\cantonThree}{\node {\includegraphics[width=\outerLen]{canton03}};}
-\newcommand{\cantonFour}{\node {\includegraphics[width=\innerLen]{canton04}};}
-\newcommand{\cantonFive}{\node {\includegraphics[width=\outerLen]{canton05}};}
-\newcommand{\cantonSix}{\node {\includegraphics[width=\innerLen]{canton06}};}
-\newcommand{\cantonSeven}{\node {\includegraphics[width=\outerLen]{canton07}};}
-\newcommand{\cantonEight}{\node {\includegraphics[width=\innerLen]{canton08}};}
-\newcommand{\cantonNine}{\node {\includegraphics[width=\outerLen]{canton09}};}
-\newcommand{\cantonTen}{\node {\includegraphics[width=\innerLen]{canton10}};}
-\newcommand{\cantonEleven}{\node {\includegraphics[width=\outerLen]{canton11}};}
-\newcommand{\cantonTwelve}{\node {\includegraphics[width=\innerLen]{canton12}};}
-\newcommand{\cantonThirteen}{\node {\includegraphics[width=\outerLen]{canton13}};}
-\newcommand{\cantonFourteen}{\node {\includegraphics[width=\innerLen]{canton14}};}
-\newcommand{\cantonFifteen}{\node {\includegraphics[width=\outerLen]{canton15}};}
-\newcommand{\cantonSixteen}{\node {\includegraphics[width=\innerLen]{canton16}};}
-\newcommand{\cantonSeventeen}{\node {\includegraphics[width=\outerLen]{canton17}};}
-\newcommand{\cantonEighteen}{\node {\includegraphics[width=\innerLen]{canton18}};}
-\newcommand{\cantonNineteen}{\node {\includegraphics[width=\outerLen]{canton19}};}
-\newcommand{\cantonTwenty}{\node {\includegraphics[width=\innerLen]{canton20}};}
-\newcommand{\cantonTwentyOne}{\node {\includegraphics[width=\outerLen]{canton21}};}
-\newcommand{\cantonTwentyTwo}{\node {\includegraphics[width=\innerLen]{canton22}};}
-\newcommand{\cantonTwentyThree}{\node {\includegraphics[width=\outerLen]{canton23}};}
-\newcommand{\cantonTwentyFour}{\node {\includegraphics[width=\innerLen]{canton24}};}
-\newcommand{\cantonTwentyFive}{\node {\includegraphics[width=\innerLen]{canton01}};}
-\newcommand{\cantonTwentySix}{\node {\includegraphics[width=\outerLen]{canton01}};}
+
+\newcommand{\outerFlag}[2][outerLen]{\node {\includegraphics[width=\csname#1\endcsname]{#2}};}
+\newcommand{\innerFlag}[2][innerLen]{\outerFlag[#1]{#2}}
+
+% Then replace all previous definitions with:
+\newcommand{\cantonOne}{\outerFlag{zuerich}}
+\newcommand{\cantonTwo}{\innerFlag{canton01}}
+\newcommand{\cantonThree}{\outerFlag{canton03}}
+\newcommand{\cantonFour}{\innerFlag{canton04}}
+\newcommand{\cantonFive}{\outerFlag{canton05}}
+\newcommand{\cantonSix}{\innerFlag{canton06}}
+\newcommand{\cantonSeven}{\outerFlag{canton07}}
+\newcommand{\cantonEight}{\innerFlag{canton08}}
+\newcommand{\cantonNine}{\outerFlag{canton09}}
+\newcommand{\cantonTen}{\innerFlag{canton10}}
+\newcommand{\cantonEleven}{\outerFlag{canton11}}
+\newcommand{\cantonTwelve}{\innerFlag{canton12}}
+\newcommand{\cantonThirteen}{\outerFlag{canton13}}
+\newcommand{\cantonFourteen}{\innerFlag{canton14}}
+\newcommand{\cantonFifteen}{\outerFlag{canton15}}
+\newcommand{\cantonSixteen}{\innerFlag{canton16}}
+\newcommand{\cantonSeventeen}{\outerFlag{canton17}}
+\newcommand{\cantonEighteen}{\innerLen{canton18}}
+\newcommand{\cantonNineteen}{\outerFlag{canton19}}
+\newcommand{\cantonTwenty}{\innerFlag{canton20}}
+\newcommand{\cantonTwentyOne}{\outerFlag{canton21}}
+\newcommand{\cantonTwentyTwo}{\innerFlag{canton22}}
+\newcommand{\cantonTwentyThree}{\outerFlag{canton23}}
+\newcommand{\cantonTwentyFour}{\innerFlag{canton24}}
+\newcommand{\cantonTwentyFive}{\innerFlag{canton01}}
+\newcommand{\cantonTwentySix}{\outerFlag{canton01}}
+
+
 
 \begin{document}
 \begin{tikzpicture}[scale=1, x=1cm, y=1cm]
