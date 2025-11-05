@@ -2,6 +2,7 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usepackage{graphicx}
+\usepackage{svg}
 
 % Boolean switch to show/hide clock hands
 \newif\ifshowHands
@@ -22,36 +23,40 @@
 }
 
 
-\newcommand{\outerFlag}[2][outerLen]{\node {\includegraphics[width=\csname#1\endcsname]{#2}};}
+% \newcommand{\outerFlag}[2][outerLen]{\node {\includegraphics[width=\csname#1\endcsname]{#2}};}
+\newcommand{\outerFlag}[2][outerLen]{\node {\includesvg[width=\csname#1\endcsname]{#2}};}
 \newcommand{\innerFlag}[2][innerLen]{\outerFlag[#1]{#2}}
 
 % Then replace all previous definitions with:
 \newcommand{\cantonOne}{\outerFlag{zuerich}}
-\newcommand{\cantonTwo}{\innerFlag{canton01}}
-\newcommand{\cantonThree}{\outerFlag{canton03}}
-\newcommand{\cantonFour}{\innerFlag{canton04}}
-\newcommand{\cantonFive}{\outerFlag{canton05}}
-\newcommand{\cantonSix}{\innerFlag{canton06}}
-\newcommand{\cantonSeven}{\outerFlag{canton07}}
-\newcommand{\cantonEight}{\innerFlag{canton08}}
-\newcommand{\cantonNine}{\outerFlag{canton09}}
-\newcommand{\cantonTen}{\innerFlag{canton10}}
-\newcommand{\cantonEleven}{\outerFlag{canton11}}
-\newcommand{\cantonTwelve}{\innerFlag{canton12}}
-\newcommand{\cantonThirteen}{\outerFlag{canton13}}
-\newcommand{\cantonFourteen}{\innerFlag{canton14}}
-\newcommand{\cantonFifteen}{\outerFlag{canton15}}
-\newcommand{\cantonSixteen}{\innerFlag{canton16}}
-\newcommand{\cantonSeventeen}{\outerFlag{canton17}}
-\newcommand{\cantonEighteen}{\innerLen{canton18}}
-\newcommand{\cantonNineteen}{\outerFlag{canton19}}
-\newcommand{\cantonTwenty}{\innerFlag{canton20}}
-\newcommand{\cantonTwentyOne}{\outerFlag{canton21}}
-\newcommand{\cantonTwentyTwo}{\innerFlag{canton22}}
-\newcommand{\cantonTwentyThree}{\outerFlag{canton23}}
-\newcommand{\cantonTwentyFour}{\innerFlag{canton24}}
-\newcommand{\cantonTwentyFive}{\innerFlag{canton01}}
-\newcommand{\cantonTwentySix}{\outerFlag{canton01}}
+\newcommand{\cantonTwo}{\innerFlag{bern}}
+\newcommand{\cantonThree}{\outerFlag{lucerne}}
+\newcommand{\cantonFour}{\innerFlag{uri}}
+\newcommand{\cantonFive}{\outerFlag{schwyz}}
+\newcommand{\cantonSix}{\innerFlag{obwalden}}
+\newcommand{\cantonSeven}{\outerFlag{nidwalden}}
+\newcommand{\cantonEight}{\innerFlag{glarus}}
+\newcommand{\cantonNine}{\outerFlag{zug}}
+\newcommand{\cantonTen}{\innerFlag{fribourg}}
+\newcommand{\cantonEleven}{\outerFlag{solothurn}}
+\newcommand{\cantonTwelve}{\innerFlag{basel}}
+\newcommand{\cantonThirteen}{\outerFlag{baselland}}
+\newcommand{\cantonFourteen}{\innerFlag{schaffhausen}}
+\newcommand{\cantonFifteen}{\outerFlag{appenzellinnerrhoden}}
+\newcommand{\cantonSixteen}{\innerFlag{appenzellaussrrhoden}}
+%\newcommand{\cantonSeventeen}{\outerFlag{sanktgallen}}
+%\newcommand{\cantonEighteen}{\innerLen{graubuenden}}
+\newcommand{\cantonSeventeen}{\outerFlag{bern}}
+\newcommand{\cantonEighteen}{\innerLen{bern}}
+%
+\newcommand{\cantonNineteen}{\outerFlag{aargau}}
+\newcommand{\cantonTwenty}{\innerFlag{thurgau}}
+\newcommand{\cantonTwentyOne}{\outerFlag{ticino}}
+\newcommand{\cantonTwentyTwo}{\innerFlag{vaud}}
+\newcommand{\cantonTwentyThree}{\outerFlag{valais}}
+\newcommand{\cantonTwentyFour}{\innerFlag{neuchatel}}
+\newcommand{\cantonTwentyFive}{\innerFlag{geneva}}
+\newcommand{\cantonTwentySix}{\outerFlag{jura}}
 
 
 
