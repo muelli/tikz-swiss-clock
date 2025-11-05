@@ -63,11 +63,11 @@
     \draw[line width=1.5pt] (\angle:0.875*\R) -- (\angle:0.925*\R);
     
     % Hour numbers
-    \node at (\angle:0.65*\R) {\Large\textsf{\hour}};
+    \node at (\angle:0.825*\R) {\Large\textsf{\hour}};
     
     % Outer canton coat of arms
-    \draw[thick, fill=white] (\angle:0.825*\R) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
-    \begin{scope}[shift={(\angle:0.825*\R)}]
+    \draw[thick, fill=white] (\angle:0.65*\R) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
+    \begin{scope}[shift={(\angle:0.65*\R)}]
         \outerCanton
     \end{scope}
     
