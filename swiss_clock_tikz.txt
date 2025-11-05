@@ -79,12 +79,21 @@
     \end{scope}
 }
 
-% Minute markers (small ticks)
+% Minute markers
 \foreach \minute in {0,6,12,...,354} {
     \pgfmathsetmacro{\angle}{90 - \minute}
     \pgfmathsetmacro{\isHour}{mod(\minute, 30) == 0 ? 1 : 0}
+    \pgfmathsetmacro{\isFiveMin}{mod(\minute, 30) == 0 ? 0 : 1}
     \ifnum\isHour=0
-        \draw[line width=0.5pt] (\angle:0.9*\R) -- (\angle:0.925*\R);
+        % Skip hour positions (already drawn)
+    \else
+        \ifnum\isFiveMin=1
+            % Five minute markers (thicker and longer)
+            \draw[line width=1pt] (\angle:0.875*\R) -- (\angle:0.925*\R);
+        \else
+            % Regular minute markers (thin and short)
+            \draw[line width=0.5pt] (\angle:0.9*\R) -- (\angle:0.925*\R);
+        \fi
     \fi
 }
 
