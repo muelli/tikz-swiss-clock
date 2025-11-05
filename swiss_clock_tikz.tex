@@ -7,6 +7,7 @@
 % Boolean switch to show/hide clock hands
 \newif\ifshowHands
 \showHandsfalse  % Set to \showHandstrue to display hands
+% \showHandstrue
 
 % Define base radius as a dimension
 \newlength{\R}
@@ -33,10 +34,10 @@
 \begin{tikzpicture}[scale=1, x=1cm, y=1cm]
 
 % Define base radius
-\def\R{8}
+\def\R{10}
 
 % Clock face outer circle
-\draw[line width=2pt] (0,0) circle (\R);
+%\draw[line width=2pt] (0,0) circle (\R);
 \draw[line width=0.5pt] (0,0) circle (0.925*\R);
 
 % Hour markers and canton positions
