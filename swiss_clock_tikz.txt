@@ -9,7 +9,12 @@
 
 % Define base radius as a dimension
 \newlength{\R}
-\setlength{\R}{8cm}
+\setlength{\R}{10cm}
+
+\newlength{\outerLen}
+\setlength{\outerLen}{.15\R}
+\newlength{\innerLen}
+\setlength{\innerLen}{.13\R}
 
 % TikZ style for hour numbers
 \tikzset{
@@ -18,32 +23,32 @@
 
 % Define macros for canton coat of arms
 % Replace the filenames with your actual image files (PDF, PNG, or JPG)
-\newcommand{\cantonOne}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton01}};}
-\newcommand{\cantonTwo}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton02}};}
-\newcommand{\cantonThree}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton03}};}
-\newcommand{\cantonFour}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton04}};}
-\newcommand{\cantonFive}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton05}};}
-\newcommand{\cantonSix}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton06}};}
-\newcommand{\cantonSeven}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton07}};}
-\newcommand{\cantonEight}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton08}};}
-\newcommand{\cantonNine}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton09}};}
-\newcommand{\cantonTen}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton10}};}
-\newcommand{\cantonEleven}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton11}};}
-\newcommand{\cantonTwelve}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton12}};}
-\newcommand{\cantonThirteen}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton13}};}
-\newcommand{\cantonFourteen}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton14}};}
-\newcommand{\cantonFifteen}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton15}};}
-\newcommand{\cantonSixteen}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton16}};}
-\newcommand{\cantonSeventeen}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton17}};}
-\newcommand{\cantonEighteen}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton18}};}
-\newcommand{\cantonNineteen}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton19}};}
-\newcommand{\cantonTwenty}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton20}};}
-\newcommand{\cantonTwentyOne}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton21}};}
-\newcommand{\cantonTwentyTwo}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton22}};}
-\newcommand{\cantonTwentyThree}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton23}};}
-\newcommand{\cantonTwentyFour}{\node {\includegraphics[width=\dimexpr0.13\R\relax]{canton24}};}
-\newcommand{\cantonTwentyFive}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton25}};}
-\newcommand{\cantonTwentySix}{\node {\includegraphics[width=\dimexpr0.15\R\relax]{canton26}};}
+\newcommand{\cantonOne}{\node {\includegraphics[width=\outerLen]{canton01}};}
+\newcommand{\cantonTwo}{\node {\includegraphics[width=\innerLen]{canton01}};}
+\newcommand{\cantonThree}{\node {\includegraphics[width=\outerLen]{canton03}};}
+\newcommand{\cantonFour}{\node {\includegraphics[width=\innerLen]{canton04}};}
+\newcommand{\cantonFive}{\node {\includegraphics[width=\outerLen]{canton05}};}
+\newcommand{\cantonSix}{\node {\includegraphics[width=\innerLen]{canton06}};}
+\newcommand{\cantonSeven}{\node {\includegraphics[width=\outerLen]{canton07}};}
+\newcommand{\cantonEight}{\node {\includegraphics[width=\innerLen]{canton08}};}
+\newcommand{\cantonNine}{\node {\includegraphics[width=\outerLen]{canton09}};}
+\newcommand{\cantonTen}{\node {\includegraphics[width=\innerLen]{canton10}};}
+\newcommand{\cantonEleven}{\node {\includegraphics[width=\outerLen]{canton11}};}
+\newcommand{\cantonTwelve}{\node {\includegraphics[width=\innerLen]{canton12}};}
+\newcommand{\cantonThirteen}{\node {\includegraphics[width=\outerLen]{canton13}};}
+\newcommand{\cantonFourteen}{\node {\includegraphics[width=\innerLen]{canton14}};}
+\newcommand{\cantonFifteen}{\node {\includegraphics[width=\outerLen]{canton15}};}
+\newcommand{\cantonSixteen}{\node {\includegraphics[width=\innerLen]{canton16}};}
+\newcommand{\cantonSeventeen}{\node {\includegraphics[width=\outerLen]{canton17}};}
+\newcommand{\cantonEighteen}{\node {\includegraphics[width=\innerLen]{canton18}};}
+\newcommand{\cantonNineteen}{\node {\includegraphics[width=\outerLen]{canton19}};}
+\newcommand{\cantonTwenty}{\node {\includegraphics[width=\innerLen]{canton20}};}
+\newcommand{\cantonTwentyOne}{\node {\includegraphics[width=\outerLen]{canton21}};}
+\newcommand{\cantonTwentyTwo}{\node {\includegraphics[width=\innerLen]{canton22}};}
+\newcommand{\cantonTwentyThree}{\node {\includegraphics[width=\outerLen]{canton23}};}
+\newcommand{\cantonTwentyFour}{\node {\includegraphics[width=\innerLen]{canton24}};}
+\newcommand{\cantonTwentyFive}{\node {\includegraphics[width=\innerLen]{canton01}};}
+\newcommand{\cantonTwentySix}{\node {\includegraphics[width=\outerLen]{canton01}};}
 
 \begin{document}
 \begin{tikzpicture}[scale=1, x=1cm, y=1cm]
@@ -71,7 +76,7 @@
     12/\cantonTwentyThree/\cantonTwentyFour
 } {
     % Calculate angle (12 o'clock is at 90 degrees)
-    \pgfmathsetmacro{\angle}{90 - \hour * 30}
+    \pgfmathsetmacro{\angle}{90 - 30\hour} % * 30}
     
     % Hour tick marks
     \draw[line width=1.5pt] (\angle:0.875*\R) -- (\angle:0.925*\R);
