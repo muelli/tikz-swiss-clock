@@ -7,6 +7,10 @@
 \newif\ifshowHands
 \showHandsfalse  % Set to \showHandstrue to display hands
 
+% Define base radius as a dimension
+\newlength{\R}
+\setlength{\R}{8cm}
+
 % TikZ style for hour numbers
 \tikzset{
     hour number/.style={font=\Huge\sffamily}
@@ -14,7 +18,6 @@
 
 % Define macros for canton coat of arms
 % Replace the filenames with your actual image files (PDF, PNG, or JPG)
-% You can also convert SVG to PDF using: inkscape canton01.svg --export-pdf=canton01.pdf
 \newcommand{\cantonOne}{\node {\includegraphics[width=0.15\R]{canton01}};}
 \newcommand{\cantonTwo}{\node {\includegraphics[width=0.13\R]{canton02}};}
 \newcommand{\cantonThree}{\node {\includegraphics[width=0.15\R]{canton03}};}
@@ -43,7 +46,7 @@
 \newcommand{\cantonTwentySix}{\node {\includegraphics[width=0.15\R]{canton26}};}
 
 \begin{document}
-\begin{tikzpicture}[scale=2]
+\begin{tikzpicture}[scale=1, x=1cm, y=1cm]
 
 % Define base radius
 \def\R{8}
