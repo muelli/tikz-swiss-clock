@@ -17,3 +17,8 @@ swiss_clock_tikz.gray.expanded.pdf:
 
 %.expanded.pdf: %.pdf
 	podofouncompress  "$<"  "$@"
+
+
+%.png: %.pdf
+	pdftoppm -png -f 1 -l 1  $<  $@
+	mv $@-1.png  $@
