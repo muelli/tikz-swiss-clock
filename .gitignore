@@ -1,3 +1,7 @@
 /svg-inkscape/
 *.log
 *.aux
+*.fdb_latexmk
+*.fls
+*.input_files
+*_with_sources.pdf
