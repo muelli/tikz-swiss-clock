@@ -22,3 +22,31 @@ swiss_clock_tikz.gray.expanded.pdf:
 %.png: %.pdf
 	pdftoppm -png -f 1 -l 1  $<  $@
 	mv $@-1.png  $@
+
+
+
+# Target to generate list of local input files
+%.input_files: %.fls
+	cat $< | \
+		awk '/^INPUT/ {sub(/^INPUT\s*/, ""); sub(/^\.\//, ""); print}' | \
+		grep -vE '^/usr/share/texlive|^/usr/local/texlive' | \
+		grep -v '^/' | \
+		grep -v '^svg-inkscape/' | \
+		grep -v '\.aux$$' | \
+		sort -u > $@
+	echo Makefile >> $@
+
+# Target to create source ZIP
+%_sources.zip: %.input_files
+	xargs -a $*.input_files zip -r $@
+
+# Rule to create PDF with embedded sources
+%_with_sources.pdf: %.pdf %_sources.zip
+	#pdftk $*.pdf attach_files $*_sources.zip output $@
+	#qpdf --add-attachment=$*_sources.zip $*.pdf $@
+	cp $< $@  ; pdfcpu attach add  $@   '$*_sources.zip, Source files - use LaTeX to compile'
+	rm $*_sources.zip
+
+# Generate .fls file with all input files
+%.fls: %.tex
+	latexmk -pdf -recorder $<
