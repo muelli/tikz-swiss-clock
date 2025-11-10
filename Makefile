@@ -1,4 +1,5 @@
-swiss_clock_tikz.gray.expanded.pdf:
+clock.pdf: swiss_clock_tikz.with_sources.gray.expanded.pdf
+	cp -ar --reflink=auto  $^  $@
 
 
 %.pdf: %.tex
@@ -41,7 +42,7 @@ swiss_clock_tikz.gray.expanded.pdf:
 	xargs -a $*.input_files zip -r $@
 
 # Rule to create PDF with embedded sources
-%_with_sources.pdf: %.pdf %_sources.zip
+%.with_sources.pdf: %.pdf %_sources.zip
 	#pdftk $*.pdf attach_files $*_sources.zip output $@
 	#qpdf --add-attachment=$*_sources.zip $*.pdf $@
 	cp $< $@  ; pdfcpu attach add  $@   '$*_sources.zip, Source files - use LaTeX to compile'
