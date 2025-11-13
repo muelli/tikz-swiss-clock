@@ -5,3 +5,8 @@
 *.fls
 *.input_files
 *_with_sources.pdf
+*.gray.pdf
+*.png
+*.pdf
+*.deps
+*.swp
