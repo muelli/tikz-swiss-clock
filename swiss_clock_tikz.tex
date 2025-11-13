@@ -24,10 +24,8 @@
 }
 
 
-% \newcommand{\outerFlag}[2][outerLen]{\node {\includegraphics[width=\csname#1\endcsname]{#2}};}
-\newcommand{\outerFlag}[2][outerLen]{\node {\includesvg[width=\csname#1\endcsname]{#2}};}
+\newcommand{\outerFlag}[2][outerLen]{\node {\includegraphics[width=\csname#1\endcsname]{#2.gray.pdf}};}
 \newcommand{\innerFlag}[2][innerLen]{\outerFlag[#1]{#2}}
-
 
 
 \begin{document}
@@ -37,7 +35,7 @@
 \def\R{10}
 
 % Clock face outer circle
-% \draw[line width=2pt,red] (0,0) circle (0.950*\R);
+\draw[line width=2pt,red] (0,0) circle (0.950*\R);
 \draw[line width=0.5pt] (0,0) circle (0.925*\R);
 
 % Hour markers and canton positions

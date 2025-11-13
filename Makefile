@@ -1,9 +1,13 @@
 clock.pdf: swiss_clock_tikz.with_sources.gray.expanded.pdf
 	cp -ar --reflink=auto  $^  $@
 
+swiss_clock_tikz.pdf: swiss_clock_tikz.deps
+
+-include swiss_clock_tikz.deps
 
 %.pdf: %.tex
-	pdflatex --shell-escape $^
+	#pdflatex --shell-escape
+	latexmk -f  -pdf -use-make $*.tex
 
 
 %.gray.pdf: %.pdf
@@ -50,4 +54,18 @@ clock.pdf: swiss_clock_tikz.with_sources.gray.expanded.pdf
 
 # Generate .fls file with all input files
 %.fls: %.tex
-	latexmk -pdf -recorder $<
+	latexmk -pdf -recorder -silent $<
+
+%.deps: %.tex
+	-latexmk -pdf -silent -deps-out=$@  $<
+
+
+%.pdf: %.svg
+	inkscape $*.svg  --export-filename=$@  --export-pdf-version=1.5
+
+
+clean:
+	latexmk -c   swiss_clock_tikz
+	-rm *.fls *.aux
+	-rm *.deps *.input_files
+	-rm *.pdf
