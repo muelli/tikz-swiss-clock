@@ -1,4 +1,4 @@
-clock.pdf: swiss_clock_tikz.with_sources.gray.expanded.pdf
+clock.pdf: swiss_clock_tikz.with_sources.expanded.pdf
 	cp -ar --reflink=auto  $^  $@
 
 swiss_clock_tikz.pdf: swiss_clock_tikz.deps
