@@ -63,14 +63,14 @@
     \node[hour number] at (\angle:0.825*\R) {\hour};
     
     % Outer canton coat of arms
-    \draw[thick, fill=white] (\angle:0.65*\R) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
+    \draw[thick, line width=2mm, fill=white] (\angle:0.65*\R) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
     \begin{scope}[shift={(\angle:0.65*\R)}]
         \outerFlag{\outerCanton}
     \end{scope}
 
     % Inner canton coat of arms - between hours
     \pgfmathsetmacro{\innerangle}{\angle - 15}
-    \draw[thick, fill=white] (\innerangle:0.45*\R) ++(-0.075*\R,-0.075*\R) rectangle ++(0.15*\R,0.15*\R);
+    \draw[thick, line width=2mm, fill=white] (\innerangle:0.45*\R) ++(-0.075*\R,-0.075*\R) rectangle ++(0.15*\R,0.15*\R);
     \begin{scope}[shift={(\innerangle:0.45*\R)}]
         \innerFlag{\innerCanton}
     \end{scope}
@@ -110,12 +110,12 @@
 }
 
 % Center canton positions (two remaining cantons)
-\draw[thick, fill=white] (-0.125*\R, 0) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
+\draw[thick, line width=2mm, fill=white] (-0.125*\R, 0) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
 \begin{scope}[shift={(-0.125*\R, 0)}]
     \outerFlag{geneva}
 \end{scope}
 
-\draw[thick, fill=white] (0.125*\R, 0) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
+\draw[thick, line width=2mm, fill=white] (0.125*\R, 0) ++(-0.0875*\R,-0.0875*\R) rectangle ++(0.175*\R,0.175*\R);
 \begin{scope}[shift={(0.125*\R, 0)}]
     \outerFlag{jura}
 \end{scope}
